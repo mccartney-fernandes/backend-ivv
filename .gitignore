@@ -1,0 +1,8 @@
+/node_modules
+/tests/lcov-report
+/tests/clover.xml
+/tests/coverage-final.json
+/tests/lcov.info
+
+.env
+.env.test
