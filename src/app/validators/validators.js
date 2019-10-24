@@ -16,6 +16,7 @@ const commentSchema = Joi.object({
 })
 
 const userSchema = Joi.object({
+  role: Joi.string().required(),
   name: Joi.string().required(),
   email: Joi.string().required(),
   password: Joi.string().required()

@@ -4,7 +4,7 @@ async function UserSeeder (roles) {
   console.log('Iniciando contrução do UserSeeder')
 
   const user = await User.create({
-    role_id: roles[0]._id,
+    role: roles[0]._id,
     email: 'admin@admin.com',
     password: '123456',
     profile: {

@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
 const UserSchema = new mongoose.Schema({
-  role_id: {
+  role: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Role'
   },
@@ -31,6 +31,11 @@ UserSchema.pre('save', async function (next) {
   }
 
   this.password = await bcrypt.hash(this.password, 10)
+})
+
+UserSchema.post('save', async function (next) {
+  this.password = ''
+  return next()
 })
 
 UserSchema.methods.comparePassword = function (passCompare) {
